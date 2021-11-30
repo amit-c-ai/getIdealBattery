@@ -1,0 +1,24 @@
+{%  extends 'input/main.html' %}
+
+{% block content %}
+
+    <div class="col-md-5">
+        <div class="col-md-7">
+            <h5>Features for ideal battery</h5>
+            <hr>
+            <div class="card card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <th>C Rating</th>
+                        <th>{{ c_rating }}</th>
+                    </tr>
+                    <tr>
+                        <th>Capacity</th>
+                        <th>{{ capacity }} MAH</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,9 +1,15 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import batteryDetail
+from .models import maxCurrent, chargeTime, batteryChoose
 
-class batteryDetailAdmin(admin.ModelAdmin):
+class maxCurrentAdmin(admin.ModelAdmin):
+    list_display  = ['capacity', 'c_rating']
+admin.site.register(maxCurrent, maxCurrentAdmin)
 
-    list_display  = ['no_of_cells', 'voltage', 'c_count', 'mAh']
+class chargeTimeAdmin(admin.ModelAdmin):
+    list_display  = ['capacity']
+admin.site.register(chargeTime, chargeTimeAdmin)
 
-admin.site.register(batteryDetail, batteryDetailAdmin)
+class batteryChooseAdmin(admin.ModelAdmin):
+    list_display  = ['voltage', 'current', 'run_time']
+admin.site.register(batteryChoose, batteryChooseAdmin)
