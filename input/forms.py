@@ -1,7 +1,7 @@
 from django.db.models import fields
 from django.forms import ModelForm
 from django import forms
-from .models import maxCurrent, chargeTime, batteryChoose, continuousCurr
+from .models import maxCurrent, chargeTime, batteryChoose, continuousCurr, burstCurr, dischargeTime
 
 class maxCurrentForm(ModelForm):
     class Meta:
@@ -21,4 +21,14 @@ class batteryChooseForm(ModelForm):
 class continuousCurrForm(ModelForm):
     class Meta:
         model = continuousCurr
+        fields = '__all__'
+    
+class burstsCurrForm(ModelForm):
+    class Meta:
+        model = burstCurr
+        fields = '__all__'
+
+class dischargeTimeForm(ModelForm):
+    class Meta:
+        model = dischargeTime
         fields = '__all__'

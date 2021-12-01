@@ -9,6 +9,8 @@ urlpatterns = [
     path('chargetime/', views.chargetime, name="chargetime"),
     path('batterychoose/', views.batterychoose, name="batterychoose"),
     path('contcurr/', views.contcurr, name="contcurr"),
+    path('burstcurr/', views.burstcurr, name="burstcurr"),
+    path('dischargetime/', views.dischargetime, name="dischargetime"),
 ]
 
 urlpatterns+=staticfiles_urlpatterns()

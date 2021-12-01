@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import maxCurrentForm, chargeTimeForm, batteryChooseForm, continuousCurrForm
+from .forms import maxCurrentForm, chargeTimeForm, batteryChooseForm, continuousCurrForm, burstsCurrForm, dischargeTimeForm
 # from .models import maxCurrent, chargeTime, batteryChoose
 
 # Create your views here.
@@ -24,7 +24,9 @@ def chargetime(request):
     if request.method == "POST":
         capacity = request.POST.get('capacity')
         idl_curr = int(capacity)/1000
-        context = {'idl_curr':idl_curr}
+        idl_curr_2 = 2*idl_curr
+        idl_curr_3 = 3*idl_curr
+        context = {'idl_curr':idl_curr, 'idl_curr_2':idl_curr_2, 'idl_curr_3':idl_curr_3}
         return render(request, 'input/resultpagechargetime.html', context)
 
     context = {'form':form}
@@ -49,11 +51,36 @@ def contcurr(request):
     form = continuousCurrForm()
     if request.method == "POST":
         capacity = request.POST.get('capacity')
-        c_rating = request.POST.get('c_rating')
+        cont_curr = request.POST.get('continuous_current')
         
-        cont_curr = (int(capacity)*float(c_rating))/1000
-        context = {'cont_curr':cont_curr}
+        c_rating = (float(cont_curr)*1000)/capacity
+        context = {'c_rating':c_rating}
         return render(request, 'input/resultpagecontcurr.html', context)
 
     context = {'form':form}
     return render(request, 'input/contcurr.html', context) 
+
+def burstcurr(request):
+    form = burstsCurrForm()
+    if request.method == "POST":
+        capacity = request.POST.get('capacity')
+        c_rating = request.POST.get('c_rating')
+        
+        burst_curr = (int(capacity)*float(c_rating))/1000
+        context = {'burst_curr':burst_curr}
+        return render(request, 'input/resultpageburstcurr.html', context)
+
+    context = {'form':form}
+    return render(request, 'input/burstcurr.html', context) 
+
+def dischargetime(request):
+    form = dischargeTimeForm()
+    if request.method == "POST":
+        c_rating = request.POST.get('c_rating')
+        
+        dis_curr = 60/float(c_rating)
+        context = {'dis_curr':dis_curr}
+        return render(request, 'input/resultpagediscurr.html', context)
+
+    context = {'form':form}
+    return render(request, 'input/discurr.html', context) 

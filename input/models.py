@@ -16,4 +16,11 @@ class batteryChoose(models.Model):
 
 class continuousCurr(models.Model):
     capacity = models.PositiveBigIntegerField()
+    continuous_current = models.FloatField(null=True)
+
+class burstCurr(models.Model):
+    capacity = models.PositiveBigIntegerField()
+    c_rating = models.FloatField()
+
+class dischargeTime(models.Model):
     c_rating = models.FloatField()
