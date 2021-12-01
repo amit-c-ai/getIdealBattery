@@ -2,31 +2,36 @@
 
 {% block content %}
 
-    <div class="col-md-5">
-        <div class="col-md-7">
-            <h5>Charging times required</h5>
-            <hr>
-            <div class="card card-body">
-                <table class="table table-sm">
-                    <tr>
-                        <th>Battery should be charged at ideal current</th>
-                        <th>{{ idl_curr }}</th>
-                    </tr>
-                    <tr>
-                        <th>If charged at {{ idl_curr }}</th>
-                        <th>60  minutes</th>
-                    </tr>
-                    <tr>
-                        <th>If charged at {{ idl_curr }} X 2</th>
-                        <th>60/2 minutes</th>
-                    </tr>
-                    <tr>
-                        <th>If charged at {{ idl_curr }} X 3</th>
-                        <th>60/4 minutes</th>
-                    </tr>
-                </table>
-            </div>
+    <style>
+        .current{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+    <br />
+    <div class="row p-5 ml-5">
+        <div class="card current text-dark bg-light p-5" style="max-width: 18rem">
+            <table class="table table-sm">
+                <tr>
+                    <th>Battery should be charged at ideal current</th>
+                    <th>{{ idl_curr }} Ampere</th>
+                </tr>
+                <tr>
+                    <th>If charged at {{ idl_curr }}</th>
+                    <th>60  minutes</th>
+                </tr>
+                <tr>
+                    <th>If charged at {{ idl_curr }} X 2</th>
+                    <th>60/2 minutes</th>
+                </tr>
+                <tr>
+                    <th>If charged at {{ idl_curr }} X 3</th>
+                    <th>60/4 minutes</th>
+                </tr>
+            </table>
         </div>
     </div>
-
+   
 {% endblock %}

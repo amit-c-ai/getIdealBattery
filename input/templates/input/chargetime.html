@@ -2,26 +2,22 @@
 
 {% block content %}
 
-    <style>
-        .profile-pic{
-            max-width: 200px;
-            max-height:200px;
-            margin: 0 auto;
-            border-radius: 50%;
-        }
-    </style>
+<style>
+    .current{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
 
-    <br>
-    <div class="row">
-        <div class="card card-body">
-                
-            <form method="POST" action="" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{form.as_p}}
-            
-                <input class="btn btn-primary" type="submit" name="Update Information">
-            </form>
-        </div>
-    </div>
+<br />
+<div class="row p-5 ml-5">
+  <div class="card current text-dark bg-light p-5" style="max-width: 18rem">
+    <form method="POST" action="" enctype="multipart/form-data">
+      {% csrf_token %} {{form.as_p}}
+      <input class="btn btn-primary" type="submit" name="Update Information" />
+    </form>
+  </div>
+</div>
 
 {% endblock %}

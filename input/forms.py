@@ -1,7 +1,7 @@
 from django.db.models import fields
 from django.forms import ModelForm
 from django import forms
-from .models import maxCurrent, chargeTime, batteryChoose
+from .models import maxCurrent, chargeTime, batteryChoose, continuousCurr
 
 class maxCurrentForm(ModelForm):
     class Meta:
@@ -16,4 +16,9 @@ class chargeTimeForm(ModelForm):
 class batteryChooseForm(ModelForm):
     class Meta:
         model = batteryChoose
+        fields = '__all__'
+
+class continuousCurrForm(ModelForm):
+    class Meta:
+        model = continuousCurr
         fields = '__all__'
